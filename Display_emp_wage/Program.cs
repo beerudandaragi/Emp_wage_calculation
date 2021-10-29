@@ -8,26 +8,32 @@ namespace Display_emp_wage
 {
     class Program
     {
+        public const int Is_Part_Time = 1;
+        public const int IS_FULLTIME = 2;
+        public const int EMP_RATE_PER_HOURS = 80;
+
+
+
         static void Main(string[] args)
         {
-            int Is_Part_Time = 1;
-            int IS_FULLTIME = 2;
-            int EMP_RATE_PER_HOURS = 80;
+
+
             int emphrs = 0;
             int empwage = 0;
             Random random = new Random();
             int empcheck = random.Next(0, 3);
-            if (empcheck == Is_Part_Time)
+            switch (empcheck)
             {
-                emphrs = 4;
-            }
-            else if (empcheck == IS_FULLTIME)
-            {
-                emphrs = 8;
-            }
-            else
-            {
-                emphrs = 0;
+                case Is_Part_Time:
+                    emphrs = 4;
+                    break;
+                case IS_FULLTIME:
+                    emphrs = 8;
+                    break;
+
+                default:
+                    emphrs = 0;
+                    break;
             }
             empwage = emphrs * EMP_RATE_PER_HOURS;
             Console.WriteLine("Emp Wage:" + empwage);
