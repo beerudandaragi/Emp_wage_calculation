@@ -10,13 +10,18 @@ namespace Display_emp_wage
     {
         static void Main(string[] args)
         {
-            int IS_FULLTIME = 1;
-            int EMP_RATE_PER_HOURS = 20;
+            int Is_Part_Time = 1;
+            int IS_FULLTIME = 2;
+            int EMP_RATE_PER_HOURS = 80;
             int emphrs = 0;
             int empwage = 0;
             Random random = new Random();
-            int empcheck = random.Next(0, 2);
-            if (empcheck == IS_FULLTIME)
+            int empcheck = random.Next(0, 3);
+            if (empcheck == Is_Part_Time)
+            {
+                emphrs = 4;
+            }
+            else if (empcheck == IS_FULLTIME)
             {
                 emphrs = 8;
             }
