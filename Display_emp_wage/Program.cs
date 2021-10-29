@@ -12,18 +12,16 @@ namespace Display_emp_wage
         public const int IS_FULLTIME = 2;
         public const int EMP_RATE_PER_HOURS = 80;
         public const int Num_Of_Working_days = 10;
-
-
+        public const int Max_Hrs_In_Month = 30;
 
         static void Main(string[] args)
         {
 
 
-            int emphrs = 0;
-            int empwage = 0;
-            int totalempwage = 0;
-            for (int day = 0; day < Num_Of_Working_days; day++)
+            int emphrs = 0, totalemphrs = 0, totalworkingdays = 0;
+            while (totalemphrs <= Max_Hrs_In_Month && totalworkingdays < Num_Of_Working_days)
             {
+                totalworkingdays++;
                 Random random = new Random();
                 int empcheck = random.Next(0, 3);
                 switch (empcheck)
@@ -39,11 +37,12 @@ namespace Display_emp_wage
                         emphrs = 0;
                         break;
                 }
+                totalemphrs += emphrs;
+                Console.WriteLine("Days:" + totalworkingdays + "Emphrs:" + emphrs);
 
-                empwage = emphrs * EMP_RATE_PER_HOURS;
-                totalempwage += empwage;
-                Console.WriteLine("Emp Wage:" + empwage);
+
             }
+            int totalempwage = totalemphrs * EMP_RATE_PER_HOURS;
             Console.WriteLine("Total Emp Wage:" + totalempwage);
             Console.ReadKey();
         }
