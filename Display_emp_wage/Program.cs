@@ -10,11 +10,11 @@ namespace Display_emp_wage
     {
         public const int Is_Part_Time = 1;
         public const int IS_FULLTIME = 2;
-        public const int EMP_RATE_PER_HOURS = 80;
-        public const int Num_Of_Working_days = 10;
-        public const int Max_Hrs_In_Month = 30;
+        ////public const int EMP_RATE_PER_HOURS = 80;
+        ////public const int Num_Of_Working_days = 10;
+        ////public const int Max_Hrs_In_Month = 30;
 
-        public static int ComputeEmpWage()
+        public static int ComputeEmpWage(string Comapny,int EMP_RATE_PER_HOURS, int Num_Of_Working_days, int Max_Hrs_In_Month)
         {
              int emphrs = 0, totalemphrs = 0, totalworkingdays = 0;
             while (totalemphrs <= Max_Hrs_In_Month && totalworkingdays < Num_Of_Working_days)
@@ -46,7 +46,9 @@ namespace Display_emp_wage
         }
                         static void Main(string[] args)
                        {
-                              ComputeEmpWage();
+            ComputeEmpWage("HCL", 80, 10, 30);
+
+            ComputeEmpWage("TATA", 100, 15, 40);
                             Console.ReadLine();
         }
 
